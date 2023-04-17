@@ -87,7 +87,7 @@ class CustomDataRow extends DataRow {
       DataCell(Text(data.getValueA())),
       DataCell(Text(data.getValueB())),
     ],
-    onSelectChanged: data.onSelectChangedFook,
+    onSelectChanged: data.onSelectChangedHook,
   );
 
   CustomDataRow.withColorTheme(RowDataHolder data, ThemeData t) : super.byIndex(
@@ -97,7 +97,7 @@ class CustomDataRow extends DataRow {
       DataCell(Text(data.getValueA())),
       DataCell(Text(data.getValueB())),
     ],
-    onSelectChanged: data.onSelectChangedFook,
+    onSelectChanged: data.onSelectChangedHook,
     color: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> s) {
       if (s.contains(MaterialState.selected)) {
         return t.colorScheme.primary.withOpacity(0.08);
@@ -193,7 +193,7 @@ class RowDataHolder {
     onSelectChangedCallback = c;
   }
 
-  void onSelectChangedFook(bool? v) {
+  void onSelectChangedHook(bool? v) {
     onSelectChangedCallback(index);
   }
 }
